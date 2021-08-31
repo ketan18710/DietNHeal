@@ -1,0 +1,175 @@
+@import './common.scss';
+.greenBar{
+  width: 100%;
+  height: 23px;
+  background-color: $primary-green;
+}
+.heroSection{
+  background-image: url('./images/services/heroBGBig.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  height: 100vh;
+  @media screen and (max-width : $md) {
+    background-image: none;
+  }
+  .content{
+    margin: 0rem auto 0rem 0 ;
+    padding: 6rem 0 0 4rem;
+    width: 65%;
+    @media screen and (max-width : 1500px) {
+      width: 70%;
+    }
+    @media screen and (max-width : $sm) {
+      padding: 2rem 0 0 ;
+      width: 90%;
+      margin: auto;
+    }
+    h2{
+      margin: 0rem 0 2rem 0;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 64px;
+      width: 90%;
+      margin: auto;
+      line-height: 80px;
+      color: $green;
+      text-align: center;
+      @include fontAdjust(1500px, 58px,80px);
+      @include fontAdjust($lg, 48px,80px);
+      @include fontAdjust($sm,24px,30px);
+    }
+    p{
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 35px;
+      text-align: center;
+      letter-spacing: 0.03em;
+      @include fontAdjust(1500px, 20px,32px);
+      @include fontAdjust($lg, 18px,30px);
+      @include fontAdjust($sm,16px,30px);
+    }
+    .line{
+      width: 82%;
+      margin: 2rem auto;
+      border-bottom: 1px solid $black;
+    }
+    .services{
+      width: 75%;
+      margin: 7rem auto 0;
+      gap: 1rem;
+      @include centreAlign();
+      flex-wrap: wrap;
+      @media screen and (max-width : $sm) {
+        margin: 2rem auto 0;
+        gap: 0.5rem;
+      }
+      .service{
+        text-align: center;
+        margin: 0;
+        min-width: fit-content;
+        width: 30%;
+        color: $green;
+      }
+      .service.last{
+        width: 100%;
+      }
+    }
+  }
+}
+.servicesDetails{
+  .service{
+    padding: 5rem 15%;
+    min-height: 50vh;
+    height: fit-content;
+    @include spaceBetween();
+    gap: 5rem;
+    @media screen and (max-width : 1500px) {
+      gap: 2rem;
+      padding: 5rem 10%;
+    }
+    @media screen and (max-width : $md) {
+      flex-direction: column;
+    }
+    .image{
+      border: 11px solid $green;
+      padding: 1rem;
+    // @media screen and (max-width : $sm) {
+    //   flex-direction: pa;
+    // }
+      img{
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        min-width: 500px;
+        max-width: 550px;
+        object-fit: contain;
+        @media screen and (max-width : $md) {
+          height: auto;
+          max-height: 400px;
+          min-width: 90%;
+          margin: auto;
+        }
+      }
+    }
+    .content{
+      height: 100%;
+      margin: auto;
+      @media screen and (max-width : $md) {
+        @include spaceBetween();
+        flex-direction: column;
+      }
+      h3{
+        width: 100%;
+        text-align: start;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 50px;
+        color: $green;
+        margin: 1rem 0;
+        @include fontAdjust($lg,32px,40px);
+        @media screen and (max-width : $md) {
+          text-align: center;
+        }
+      }
+      p{
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 31px;
+        @include fontAdjust($lg,18px,25px);
+        @media screen and (max-width : $md) {
+          text-align: center;
+        }
+      }
+      button{
+        padding: 0.8rem 0.8rem;
+        background: linear-gradient(106.86deg, #0F775F 2.02%, #168269 17.63%, #2A9E83 44.72%, #49CCAD 79.8%, #5BE6C5 98%);
+        color: $white;
+        font-weight: 600;
+        font-size: 26px;
+        @include pickFont();
+        line-height: 33px;
+        border: none;
+        border-radius: 4px;
+        @include fontAdjust($lg,24px,30px  );  
+        @include fontAdjust($md,18px ,24px );  
+        @media screen and (max-width : $md) {
+          margin-top: 3rem;
+        }
+      }
+    }
+    &:nth-child(odd){
+      background-color: $white;
+    }
+    &:nth-child(even){
+      background-color: #EBFBF8;
+    }
+  }
+  .service.right{
+    flex-direction: row-reverse;
+    @media screen and (max-width : $md) {
+      flex-direction: column;
+    }
+  }
+}

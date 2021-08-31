@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script:wght@700&family=Great+Vibes&family=Heebo&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+@mixin centreAlign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+$black : #000;
+$white : #fff;
+$green : #0F775F;
+$primary-green : #5CE7C6;
+$xl : 1720px; 
+$lg : 1200px; 
+$md : 960px; 
+$sm : 700px; 
+@mixin fontAdjust($width,$font,$lineHeight : false) {
+  @media screen and (max-width : $width) {
+    font-size: $font;
+    @if $lineHeight {
+      line-height: $lineHeight;
+    }
+  }
+}
+@mixin showContent($width,$show) {
+  @media screen and (max-width : $width) {
+    @if $show{
+      display: block;
+    }@else {
+      display: none;
+    }
+  }
+}
+$caveat : 'caveat';
+$gvibe : 'gvibe';
+$dancing : 'dancing';
+$heebo : 'heebo';
+@mixin pickFont($font : 'sourceSansPro') {
+  @if $font == $caveat {
+    font-family: 'Caveat', cursive;
+  }@else if $font == $gvibe {
+    font-family: 'Great Vibes', cursive;
+  }@else if $font == $dancing {
+    font-family: 'Dancing Script', cursive;
+  }@else if $font == $heebo{
+    font-family: 'Heebo', sans-serif;
+  }@else {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+}
+html{
+  font-size: 16px;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+body{
+  margin: 0;
+  overflow-x: hidden;
+  @include pickFont();
+}
+p{
+  @include pickFont($heebo);
+}
+.header{
+  @include spaceBetween;
+  position: relative;
+  .logo{
+    width: 300px;
+    height: 100px;
+    object-fit: contain;
+    @media screen and (max-width : $sm) {
+      width: 150px;
+    }
+  }
+  .menuDesktop{
+    gap: 4rem;
+    margin-right: 2rem;
+    @include spaceBetween();
+    @include showContent($md,false );
+    .menuItem{
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 30px;
+      text-decoration: none;
+      @include fontAdjust($lg,20px ,30px );  
+      @include fontAdjust($md,18px ,30px );  
+      color: $black;
+    }
+    .menuItem.active{
+      color: $green;
+    }
+  }
+  .menuTab{
+    display: none;
+    @include showContent($md,true);
+    #hamburgerIcon{
+      width: 40px;
+      height: 30px;
+      object-fit: contain;
+      margin-right: 1rem;
+    }
+    #dropDownMenu{
+      position: absolute;
+      top: -10px;
+      right: 0;
+      background-color: $white;
+      padding: 2rem 0;
+      width: 200px;
+      border-radius: 8px;
+      @include centreAlign();
+      flex-direction: column;
+      display: none;
+      // margin-top: 100px;
+      z-index: 1;
+      .cross{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        img{
+          width: 18px;
+          height: 18px;
+          object-fit: contain;
+          margin-right: 2rem;
+        }
+      }
+      .menuItem{
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 30px;
+        text-decoration: none;
+        @include fontAdjust($lg,20px ,30px );  
+        @include fontAdjust($md,18px ,30px );  
+        color: $black;
+      }
+      .menuItem.active{
+        color: $green;
+      }
+    }
+    .enter{
+      -webkit-animation: slide-bottom 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      animation: slide-bottom 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    
+    @-webkit-keyframes slide-bottom {
+      0% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+      }
+      100% {
+        -webkit-transform: translateY(100px);
+                transform: translateY(100px);
+      }
+    }
+    @keyframes slide-bottom {
+      0% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+      }
+      100% {
+        -webkit-transform: translateY(100px);
+                transform: translateY(100px);
+      }
+    }
+    
+    
+  }
+}
+.footer{
+  height: 40px;
+  background-color: $primary-green;
+  @include spaceBetween();
+  padding: 0 4rem ;
+  @media screen and(max-width : $md) {
+    flex-direction: column;
+    height: fit-content;
+    padding: 1rem 0;
+  }
+  p{
+    font-weight: normal;
+    font-size: 16.86px;
+    line-height: 25px;
+    margin: 0;
+    @media screen and(max-width : $md) {
+      text-align: center;
+    }
+    @include fontAdjust($sm,12px,20px);
+  }
+  .icons{
+    @include centreAlign();
+    gap: 0.4rem;
+  }
+}

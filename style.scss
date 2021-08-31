@@ -1,0 +1,1295 @@
+@import './common.scss';
+
+.heroSection{
+  display: flex;
+  gap: 2rem;
+  min-height: 100vh;
+  position: relative;
+  @media screen and (max-width : $md) {
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+  .content{
+    width: 50%;
+    padding: 4rem 0 0 2rem;
+    position: absolute;
+    left: 3rem;
+    @media screen and (max-width : $lg) {
+      left: 1rem;
+    }
+    .text{
+      border-left: 6px solid $primary-green;
+      padding: 0rem 0 1rem 4rem;
+      h3{
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 80px;
+        margin: 1rem 0;
+        @include fontAdjust($lg,52px ,70px );  
+        @include fontAdjust($md,46px ,60px );  
+      }
+      p{
+        @include pickFont($heebo);
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 30px;
+        letter-spacing: 0.02em; 
+        width: 60%;
+        margin: 3rem 0rem 0rem 0rem;
+        @include fontAdjust($lg,20px,25px  );  
+        @include fontAdjust($md,16px ,20px );  
+      }
+    }
+    button{
+      padding: 0.8rem 0.8rem;
+      background: linear-gradient(106.86deg, #0F775F 2.02%, #168269 17.63%, #2A9E83 44.72%, #49CCAD 79.8%, #5BE6C5 98%);
+      color: $white;
+      font-weight: 600;
+      font-size: 26px;
+      @include pickFont();
+      line-height: 33px;
+      border: none;
+      border-radius: 4px;
+      margin: 2rem 0 0 4rem;
+      @include fontAdjust($lg,24px,30px  );  
+      @include fontAdjust($md,18px ,24px );  
+      @media screen and (min-width  : $xl) {
+        margin-top: 6rem;
+      }
+      @media screen and (max-width  : $md) {
+        margin: 0;
+      }
+      @include showContent($md,false);  
+    }
+    @media screen and (max-width : $md) {
+      position: unset;
+      padding: 0;
+      @include spaceBetween();
+      flex-direction: column;
+      gap: 2rem;
+      width: 90%;
+      margin: auto;
+      .text{
+        border: none;
+        padding: 0;
+        h3{
+          text-align: center;
+        }
+        p{
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+  img{
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    margin-left: auto;
+    float: right;
+    max-height: 120vh;
+    // content: url('./images/heroBGSmall.png');
+    @media screen and (max-width : $lg) {
+      // object-fit: contain;
+    }
+    @media screen and (max-width : $md) {
+      width: 100%;
+    }
+  }
+}
+
+.taglineBannerContainer{
+  display: none;
+  @include showContent($md,true);
+  position: relative;
+  width: 100%;
+  margin: 4rem 0;
+  h3{
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 25px;
+    line-height: 48px;
+    margin: 1rem auto;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    color: $primary-green;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    @include fontAdjust(450px, 16px,24px);
+    @include pickFont($dancing);
+  }
+  .line{
+    position: absolute;
+    top: 50%;
+    width: 15vw;
+    height: 1px;
+    border-bottom: 2px solid $primary-green;
+    @media screen and (max-width : 450px) {
+      width: 40px;
+    }
+    @media screen and (max-width : 300px) {
+      width: 25px;
+    }
+  }
+  .left{
+    left: 0;
+  }
+  .right{
+    right: 0;
+  }
+}
+.steps{
+  .desktop{
+    display: grid;
+    grid-template-columns: 16% 5% 16% 5% 16% 5% 16% 5% 16% ;
+    // gap: 1rem;
+    width: 90%;
+    margin: auto;
+    padding: 4rem 0;
+    overflow-x: hidden;
+    .step{
+      @include centreAlign;
+      flex-direction: column;
+      gap: 2rem;
+      height: fit-content;
+      min-height: 100%;
+      img{
+        width: 80%;
+        max-width: 100%;
+        height: 127px;
+        object-fit: contain;
+      }
+      h4{
+        font-weight: 600;
+        margin: 0;
+        line-height: 30px;
+        font-size: 24px;
+        text-align: center;
+        color: $green;
+        @include fontAdjust($lg,24px ,20px );
+        margin-top: auto;
+      }
+    }
+    .line{
+      width: 100%;
+      border-bottom: 1px solid $green;
+      margin-top: auto;
+    }
+    // @media screen and (max-width : $md) {
+    //   display: none;
+    // }
+    @include showContent($md, false)
+  }
+  .tablet{
+    display: none;
+    width: 100%;
+    margin: auto;
+    background: #F3F7F8;
+    // border-radius: 30px;
+    padding: 4rem  0;
+    @include showContent($md, true);
+    h3{
+      font-weight: 600;
+      line-height: 40px;
+      text-align: center;
+      color: $green;
+      margin: 1rem auto 4rem;
+      width: 80%;
+      font-size: 64px;
+      @include fontAdjust($sm,30px,38px);
+    }
+    .icons{
+      display: flex;
+      width: 80%;
+      margin: auto;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-direction: column;
+      .step{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+          width: 40%;
+          max-width: 140px;
+          height: auto;
+          object-fit: contain;
+          @media screen and (max-width : $sm) {
+            max-width: 70px;
+          }
+        }
+        h4{
+          margin: 0;
+          width: 85%;
+          height: 50%;
+          max-height: 50%;
+          // padding: 0 5rem ;
+          color: $green;
+          text-align: center;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 22px;
+          border-bottom: 1px solid $green; 
+          &:nth-child(odd){
+            padding-left: 6rem;
+            @media screen and (max-width : $sm) {
+              padding-left: 4rem;
+            }
+          }
+          &:nth-child(even){
+            padding-right: 10rem;
+            @media screen and (max-width : $sm) {
+              padding-right: 4rem;
+            }
+          }
+          @include fontAdjust($sm,14px ,20px );
+        }
+      }
+    }
+  }
+}
+.fueledForMore{
+  padding: 4rem 4rem 14rem 4rem;
+  background-image: url('./images/fueledForMore.png');
+  background-size: cover ;
+  background-repeat: no-repeat;
+  @include spaceBetween();
+  gap: 3rem;
+  @media screen and (max-width : $md) {
+    gap: 0rem;
+    flex-direction: column;
+    padding: 0rem 0 1rem 0;
+    background-image: none;
+  }
+  .header{
+    display: none;
+    background-color: $white;
+    padding: 2rem 0;
+    width: 100%;
+    h3{
+      margin: 0 0 1rem 0;
+      color: $green;
+      font-weight: 600;
+      font-size: 64px;
+      text-align: center;
+      @include fontAdjust($md,40px,64px);
+      @include fontAdjust($sm,30px,36px);
+    }
+    @include showContent($md,true )
+  }
+  .image{
+    width: 50%;
+    border-left: 6px solid $primary-green;
+    padding-left: 1rem;
+    margin-bottom: auto;
+    // padding: 1rem 0 1rem 1rem;
+    @media screen and (max-width : $md) {
+      border: none;
+      width: 100%;
+    }
+    img{
+      width: 600px;
+      max-width: 100%;
+      height: 700px;
+      object-fit: cover;
+      box-shadow: 10px 10px $green;
+      @media screen and (max-width : $lg) {
+        // height: 500px;
+        // width: 400px;
+      }
+      @media screen and (max-width : $md) {
+        // object-fit: contain;
+        height: 500px;
+        box-shadow: none;
+        width: 100%;
+        max-width: 99vw;
+        margin: auto;
+      }
+    }
+  }
+  .content{
+    width: 40%;
+    margin: 0 auto;
+    @media screen and (max-width : $md) {
+      width: 86%;
+    }
+    h3{
+      margin: 0 0 1rem 0;
+      color: $green;
+      font-weight: 600;
+      font-size: 64px;
+      @include showContent($md,false )
+    }
+    p{
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 30px;
+      text-align: justify;
+      letter-spacing: 0.02em;
+    }
+  }
+}
+.services{
+  background-repeat: no-repeat;
+  background-image: url('./images/ServicesBG.png');
+  background-position: bottom;
+  background-size: contain;
+  background-color: #EBEFF2;
+  overflow-x: hidden;
+  // padding-bottom: 1rem;
+  @media screen and (max-width : $md) {
+    background-image: none;
+  }
+  .header{
+    padding: 3rem 0;
+    display: block;
+    @media screen and (max-width : $md) {
+      background-color: $white;
+    }
+    @media screen and (max-width : $sm) {
+      padding: 1rem 0 2rem;
+    }
+    h2{
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 80px;
+      text-align: center;
+      color: $green;
+      margin: 1rem 0;
+      @include fontAdjust($md,40px,64px);
+      @include fontAdjust($sm,30px,36px);
+    }
+    p{
+      font-weight: 500;
+      font-size: 18px;
+      display: none;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 1rem 0;
+      color: $green;
+      @include showContent($md,true );
+      @include fontAdjust($md,15px,false);
+      @include fontAdjust($sm,12px,false);
+    }
+  }
+  .list{
+    @include spaceBetween();
+    gap: 2rem;
+    padding: 0 2rem;
+    min-height: 90vh;
+    @include showContent($md,false );
+    .service{
+      @include centreAlign();
+      flex-direction: column;
+      margin-bottom: auto;
+      &:nth-child(2){
+        margin-top: 4rem;
+      }
+      .image{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 2px solid #0F775F;
+      }
+      .line{
+        width: 50px;  
+        border-bottom: 2px solid #0F775F;
+        transform: rotate(90deg);
+        margin: 2rem 0;
+      }
+      .content{
+        @include centreAlign();
+        flex-direction: column;
+        h3{
+          width: fit-content;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 40px;
+          line-height: 50px;
+          text-align: center;
+          color: $green;
+          @include fontAdjust($sm, 18px,23px );
+        }
+        p{
+          width: 70%;
+          margin: 0 auto;
+          font-weight: normal;
+          font-size: 18px;
+          line-height: 30px;
+          text-align: center;
+          letter-spacing: 0.02em;
+          padding-bottom: 2rem;
+          @include fontAdjust($sm, 12px,20px );
+          @media screen and (max-width : $sm) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .list.listSerivesCarausel{
+    display: none;
+    @include showContent($md,true );
+    @media screen and (max-width : $md) {
+      display: flex !important;
+    }
+    position: relative;
+    background-repeat: no-repeat;
+    background-image: url('./images/ServicesBGPhone.png');
+    background-size: 100% 100%;
+    padding-top: 5rem;
+    padding-bottom: 18rem;
+    .service{
+      margin-top: 1rem;
+      max-width: 70vw;
+      button{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 13px;
+        text-align: center;
+        background: linear-gradient(106.79deg, #0F775F 15.03%, #5BE6C5 97.44%);
+        border-radius: 5px;
+        color: $white;
+        border: none;
+        padding: 0.5rem 1rem;
+      }
+    }
+    .slick-slide {
+      opacity: 0;
+    }
+    .slick-current{
+      opacity: 1;
+    }
+    .image{
+      @media screen and (max-width : $sm) {
+        width: 190px;
+        height: 190px;
+      }
+    }
+    .arrowContainer{
+      display: block;
+      border-radius: 50%;
+      position: absolute;
+      border: 2px solid $green;
+      width: 30px;
+      height: 30px;
+      padding: 5rem;
+      top: 10rem;
+      @media screen and (max-width : $sm) {
+        width: 20px;
+        height: 20px;
+        padding: 4rem;
+      }
+      &:first-of-type{
+        left: -100px;
+        @media screen and (max-width : $sm) {
+          left: -75px;
+        }
+      }
+      &:last-of-type{
+        right: -100px;
+        @media screen and (max-width : $sm) {
+          right: -75px;
+        }
+      }
+      button{
+        background-color: transparent;
+        border: none;
+      }
+    }
+  }
+}
+.successStories{
+  background: #EBFBF8;
+  background-image: url('./images/successStoriesBG.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 4rem 0;
+  overflow-x: hidden;
+  @media screen and (max-width : $md) {
+    background-image: url('./images/successStoriesBGSmall.png');
+    padding-top: 0;
+  }
+  .header{
+    flex-direction: column;
+    @media screen and (max-width : $md) {
+      background-color: $white;
+    }
+    @media screen and (max-width : $sm) {
+      padding: 2rem 0 ;
+    }
+    h3{
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 80px;
+      text-align: center;
+      color: $green;
+      margin: 2rem 0;
+      @include fontAdjust($md,40px,64px);
+      @include fontAdjust($sm,30px,36px);
+      @media screen and (max-width : $sm) {
+        margin: 1rem 0;
+      }
+    }
+    p{
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      @include fontAdjust($md,15px,false);
+      @include fontAdjust($sm,12px,false);
+    }
+  }
+  .clients{
+    width: 90%;
+    margin: 0 auto;
+    // display: flex;
+    // align-items: center;
+    position: relative;
+    @include spaceBetween();
+    @media screen and (max-width : $md) {
+      padding: 4rem 0;
+      width: 100%;
+    }
+    button{
+      height: fit-content;
+      padding: 0.2rem 0.4rem;
+    }
+    .client{
+      margin: 2rem;
+      @include centreAlign();
+      flex-direction: column;
+      height: 100%;
+      .images{
+        @include spaceBetween();
+        gap: 1rem;
+        img{
+          width: 48%;
+          height: 250px;
+        }
+      }
+      .content{
+        h4{
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 23px;
+          text-align: center;
+          text-transform: uppercase;
+          color: $green;
+          margin: 1rem 0;
+        }
+        p{
+          font-weight: normal;
+          font-size: 18px;
+          line-height: 30px; 
+          display: none;
+          text-align: center;
+          letter-spacing: 0.02em;
+          margin: 0;
+        }
+      }
+    }
+    .slick-track{
+      display: flex;
+      align-items: center;
+    }
+    .slick-list{
+      padding: 0 !important;
+    }
+    .slick-slide {
+      width: 20vw;
+      @media screen and (max-width : $md) {
+        // opacity: 0;
+      }
+    }
+    .slick-current{
+      opacity: 1;
+
+    }
+    .client.slick-center{
+      width: 30vw;
+      @media screen and (max-width : $md) {
+        width: 60vw;
+        margin: 0 3rem;
+      }
+      @media screen and (max-width : $sm) {
+        width: 60vw;
+      }
+      @media screen and (max-width : 500px) {
+        width: 80vw;
+      }
+      img{
+        height: 380px;
+      }
+      .content{
+        p{
+          display: block;
+        }
+      }
+    }
+    .slick-slide[aria-hidden="false"]{
+      @media screen and (max-width : $md) {
+        .content{
+          display: none !important;
+        }
+      }
+    }
+    .client.slick-slide.slick-current.slick-active.slick-center{
+      @media screen and (max-width : $md) {
+        .content{
+          display: block !important;
+        }
+      }
+    }
+    .slick-current{
+    }
+    .slick-arrow{
+      color: $green;
+      font-size: 35px;
+      border: none;
+      background-color: transparent;
+      // @include showContent($md,false);
+      @media screen and (max-width : $md) {
+        display: none !important;
+      }
+    }
+  }
+}
+.healthParameters{
+  background-image: url('./images/healthCalcBg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-height: 140vh;
+  @media screen and (max-width : $md) {
+    background-image: url('./images/healthCalcBgSmall.png');
+  }
+  @media screen and (max-width : $sm) {
+    // background-size: cover;
+  }
+  .header{
+    flex-direction: column;
+    padding: 4rem 0;
+    @media screen and (max-width : $md) {
+      background-color: $white;
+      gap: 1rem;
+      padding: 4rem 2rem;
+    }
+    @media screen and (max-width : $md) {
+      padding: 2rem 0;
+      gap: 0;
+    }
+    h2{
+      font-style: normal;
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 80px;
+      color: $green;
+      @media screen and (max-width : $md) {
+        text-align: center;
+      }
+      margin: 2rem 0;
+      @include fontAdjust($md,40px,64px);
+      @include fontAdjust($sm,30px,36px);
+      @media screen and (max-width : $sm) {
+        margin: 1rem 0;
+      }
+    }
+    p{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 38px;
+      margin: 0 0 0 14rem;
+      @include pickFont($dancing);
+      @media screen and (max-width : $md) {
+        margin: 0 auto;
+        text-align: center;
+        width: 80%;
+      }
+      @include fontAdjust($md,15px,18px);
+      @include fontAdjust($sm,12px,18px);
+    }
+  }
+  .calculators{
+    width: 500px;
+    height: 500px;
+    padding: 0rem 4rem 14rem 4rem;
+    @include spaceBetween();
+    flex-direction: column;
+    margin-top: 2rem;
+    padding-left: 8rem;
+    @media screen and (max-width : $md) {
+      padding: 3rem 0;
+      width: 80%;
+      gap: 4rem;
+      margin: 0rem auto;
+      max-height: 50vh;
+      padding-bottom: 69vh;
+    }
+    @media screen and (max-width : $sm) {
+      // padding-bottom: 135vh;
+    }
+    .row{
+      @include spaceBetween();
+      width: 100%;
+      position: relative;
+      .calc{
+        width: 150px;
+        height: 150px;
+        border: 1px solid $green;
+        border-radius: 14px;
+        @include centreAlign();
+        cursor: pointer;
+        position: relative;
+        &:nth-child(odd){
+          &::before{
+            width: 35px;
+            content: '';
+            margin-right: auto;
+            position: absolute;
+            border-bottom: 2px solid;
+            left: -10vw;
+            top: 40px;
+            display: none;
+            @include showContent($sm,true );
+          }
+        }
+        &:nth-child(even){
+          &::before{
+            width: 35px;
+            content: '';
+            margin-right: auto;
+            position: absolute;
+            border-bottom: 2px solid;
+            right: -10vw;
+            top: 40px;
+            display: none;
+            @include showContent($sm,true );
+          }
+        }
+        @media screen and (max-width : $sm) {
+          width: 80px;
+          height: 80px;
+        }
+        p{
+          position: absolute;
+          margin: 0;
+          width: 80%;
+          font-size: 16px;
+          font-weight: 600;
+          top: rem;
+          color: $green;
+          text-align: center;
+          @include centreAlign();
+          @include fontAdjust($sm,12px , 600);
+          @media screen and (max-width : $sm) {
+            width: 72px;
+          }
+        }
+        img{
+          width: 128px;
+          height: 128px;
+          object-fit: contain;
+          background-color: $white;
+          border-radius: 14px;
+          @media screen and (max-width : $sm) {
+            width: 64px;
+            height: 64px;
+          }
+        }
+      }
+    }
+
+  }
+}
+.blogs{
+  background: #EBFBF8;
+  padding: 0 0 4rem 0;
+  .header{
+    flex-direction: column;
+    padding: 1rem 0;
+    @media screen and (max-width : $md) {
+      padding: 2rem 3rem;
+      background-color: $white;
+    }
+    h2{
+      font-style: normal;
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 80px;
+      text-align: center;
+      color: $green;
+      margin: 0;
+      @include fontAdjust($md,40px,64px);
+      @include fontAdjust($sm,30px,36px);
+      &:last-of-type{
+      }
+      @media screen and (max-width : $sm) {
+        margin:  0;
+      }
+    }
+    .lastLine{
+      width: 100%;
+      position: relative;
+      .line{
+        width: 30vw;
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        border-bottom: 1px solid;
+        display: none;
+        @include showContent($sm, true);
+        @media screen and (max-width : 500px) {
+          width: 25vw;
+        }
+        @media screen and (max-width : 350px) {
+          width: 20vw;
+        }
+      }
+      .left{
+        left: 0;
+      }
+      .right{
+        right: 0;
+      }
+    }
+    .sub-heading{
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 35px;
+      text-align: center;
+      color: $green;
+      margin: 0 0 2rem 0;
+      @media screen and (max-width : $sm) {
+        margin:  0;
+      }
+      @include fontAdjust($md,15px,18px);
+      @include fontAdjust($sm,12px,18px);
+
+    }
+  }
+  .listDesktop{
+    display: grid;
+    grid-template-columns: 30% 5% 30% 5% 30%;
+    width: 90%;
+    margin: auto;
+    @media screen and (max-width : $lg) {
+      grid-template-columns: 100% ;
+      gap: 2rem;
+    }
+    @media screen and (max-width : $md) {
+      padding-top: 2rem;
+    }
+    @include showContent($sm,false);
+    .blog{
+      width: 350px ;
+      height: 450px;
+      margin: auto;
+      cursor: pointer;
+      position: relative;
+      @include spaceBetween();
+      background-color: $black;
+      flex-direction: column;
+      .image{
+        width: 100%;
+        height: 75%;
+        background-color: #C4C4C4;
+      }
+      .date{
+        position: absolute;
+        top: 0;
+        left: 10px;
+        background: $primary-green;
+        color: $black;
+        width: 70px;
+        padding: 0.5rem 0.4rem;
+        p{
+          font-weight: normal;
+          font-size: 19px;
+          line-height: 26px;
+          text-align: center;
+          margin: 0;
+        }
+      }
+      .content{
+        width: 100%;
+        height: 25%;
+        background-color: $black;
+        h4{
+          padding: 1rem ;
+          font-weight: normal;
+          font-size: 22.47px;
+          line-height: 28px;
+          margin: 0;
+          text-align: center;
+          color: $primary-green;
+        }
+        p{
+          font-weight: normal;
+          font-size: 16.86px;
+          line-height: 25px;
+          text-align: center;
+          color: $white;
+          margin: 0;
+          display: none;
+          padding: 0 1rem;
+        }
+      }
+      &:hover{
+        .image{
+          height: 40%;
+          // transition: height 1s linear ;
+        }
+        .content{
+          height: 60%;
+          // transition: height 0.55s ease-in;
+          
+          p{
+            display: block;
+            -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            @-webkit-keyframes scale-up-center {
+              0% {
+                -webkit-transform: scale(0.5);
+                        transform: scale(0.5);
+                        opacity: 0;
+              }
+              100% {
+                -webkit-transform: scale(1);
+                        transform: scale(1);
+                        opacity: 1;
+              }
+            }
+            @keyframes scale-up-center {
+              0% {
+                -webkit-transform: scale(0.5);
+                        transform: scale(0.5);
+                        opacity: 0;
+              }
+              100% {
+                -webkit-transform: scale(1);
+                        transform: scale(1);
+                        opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    .line{
+      width: 2px;
+      background-color: $primary-green;
+      height: 400px;
+      margin: auto;
+      @include showContent($lg,false );
+    }
+  }
+  .listTab{
+    display: none;
+    padding: 4rem 0;
+    position: relative;
+    @media screen and (max-width : $sm) {
+      @include centreAlign;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .blog{
+      width: 70%;
+      height: 300px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      @media screen and (max-width : 400px) {
+        height: 200px;
+      }
+
+      .content{
+        width: 40%;
+        margin-right: auto;
+        background: rgba(15, 119, 95, 0.63);
+        height: 100%;
+        position: relative;
+        .date{
+          position: absolute;
+          top: 0;
+          left: 10px;
+          color: $green;
+          background-color: $white;
+          width: 30px;
+          padding: 0.5rem 0.4rem;
+          @media screen and(max-width : 450px) {
+            padding: 0.2rem 0.2rem;                       
+          }
+          p{
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 18px;
+            text-align: center;
+            margin: 0;
+            @include fontAdjust(450px,12px,15px);
+          }
+        }
+        h4{
+          margin: 0;
+          height: 100%;
+          @include centreAlign();
+          font-weight: 600;
+          text-align: center;
+          font-size: 12px;
+          line-height: 24px;
+          letter-spacing: 0.02em;
+          color: $white;
+          padding: 0 2rem;
+          @include fontAdjust(450px,12px,16px);
+          @media screen and(max-width : 450px) {
+            padding: 1rem 1rem 0;
+          }
+
+        }
+      }
+    }
+  }
+
+}
+.modalOuterWrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden !important;
+  @include centreAlign();
+  display: none;
+  
+  .modalInnerWrapper{
+    width: 70vw;
+    height: max-content;
+    max-height: 80vh;
+    background-color: $white;
+    @media screen and (max-width : $md) {
+      height: unset;
+      max-height: unset;
+      min-height: fit-content;
+    }
+    .modal{
+      position: relative;
+      background: linear-gradient(298.2deg, rgba(22, 221, 171, 0.4) 0.71%, rgba(255, 255, 255, 0) 20.89%);
+      box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.25);
+      width: 100%;
+      height: 100%;
+      @include centreAlign();
+      flex-direction: column;
+      height: fit-content;
+      .content{
+        position: absolute;
+        top: -4rem;
+        left: -1rem;
+        width: 40%;
+        // height: 100%;
+        background: url('./images/calculators/modalImages/BRMbg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 2rem 0 3rem;
+        background-color: $white;
+        min-height: fit-content;
+        box-shadow: 0px 0px 9px 12px rgba(0, 0, 0, 0.25);
+        @media screen and (max-width : $md) {
+          position: unset;
+          width: 100%;
+          padding: 0.5rem 0;
+          box-shadow: unset;
+          background-image: none;
+        }
+        h3{
+          padding: 1rem 0;
+          background-color: #5CE7C6;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 22px;
+          line-height: 28px;
+          background-color: #5CE7C6;
+          text-align: center;
+          text-transform: uppercase;
+          margin: 1rem 0 2.5rem;
+          @media screen and (max-width : $md) {
+            margin: 0 0 ;
+            // font-size: 16px;
+            // line-height: 20px;
+            padding: 1rem 0;
+          }
+          @media screen and (max-width : $sm) {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+        h3.blue{
+          background-color: #A6E5F4;
+        }
+        h3.orange{
+          background-color: #FF9B62;
+        }
+        h3.purple{
+          background-color: #729FF1;
+        }
+        img{
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+          @media screen and (max-width : $md) {
+            height: 100px;
+            object-fit: contain;
+            display: none;
+          }
+        }
+        p{
+          width: 80%;
+          margin: auto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 30px;
+          text-align: center;
+          margin: 1rem auto;
+          @media screen and (max-width : $md) {
+            display: none;
+          }
+        }
+      }
+      form{
+        width: 50%;
+        margin-left: auto;
+        height: 100%;
+        padding: 2rem 1rem;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        @media screen and (max-width : $md) {
+          width: 70%;
+          margin: auto;
+        }
+        @media screen and (max-width : $sm) {
+          padding: 1rem 0;
+        }
+        // box-sizing: border-box;
+        .closeModalIcon{
+          position: absolute;
+          top: 1rem;
+          right: 3rem;
+          font-size: 24px;
+          @media screen and (max-width : $sm) {
+            font-size: 16px;
+            top: 1rem;
+            right: 1.5rem;
+
+          }
+        }
+        p{
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 30px;
+          text-align: start;
+          letter-spacing: 0.02em;
+          margin-top: 0;
+          @media screen and (max-width : $sm) {
+            margin-bottom: 0.5rem;
+          }
+        }
+        input,select{
+          height: 24px;
+          margin-bottom: 0.5rem;
+          width: 80%;
+          &:focus-visible{  
+            outline: none;
+          }
+          @media screen and (max-width : $md) {
+            width: 95%;
+            margin: auto auto 0.5rem auto ;
+          }
+          @media screen and (max-width : $md) {
+            width: 90%;
+          }
+        }
+        .optionGroupContainer{
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          flex-wrap: wrap;
+          margin: 0.2rem 0 1.5rem 0;
+        }
+        .optionGroup{
+          display: flex;
+          align-items: center ;
+          input{
+            margin: 0 1rem 0 0;
+            width: fit-content;
+            &:checked{
+              background-color: $green;
+            }
+          }
+          .blue{
+            &:checked{
+              background-color: #A6E5F4;
+            }
+          }
+          .orange{
+            &:checked{
+              background-color: #FF9B62;
+            }
+          }
+          .purple{
+            &:checked{
+              background-color: #729FF1;
+            }
+          }
+        }
+        .inputContainer{
+          width: 100%;
+          button{
+            padding: 0.4rem 0.5rem;
+            background: $primary-green;
+            border: none;
+            margin-top: 1rem;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 30px;
+            border-radius: 10px;
+            @media screen and (max-width : $sm) {
+              font-size: 14px;
+              line-height: 20px;
+            }
+            @media screen and (max-width : 300px) {
+              font-size: 12px;
+              line-height: 16px;
+            }
+          }
+          button.blue{
+            background-color: #A6E5F4;
+          }
+          button.orange{
+            background-color: #FF9B62;
+          }
+          .bottomBorderInput{
+            border: none;
+            border-bottom: 1px solid $black;
+          }
+        }
+      }
+    }
+    .modal.blue{
+      background: linear-gradient(298.2deg, rgba(166, 229, 244, 0.78) 0.71%, rgba(255, 255, 255, 0) 20.89%);
+    }
+    .modal.orange{
+      background: linear-gradient(298.2deg, rgba(255, 155, 98, 0.78) 0.71%, rgba(255, 255, 255, 0) 20.89%);
+    }
+    .modal.purple{
+      background: linear-gradient(298.2deg, rgba(114, 159, 241, 0.4) 0.71%, rgba(255, 255, 255, 0) 20.89%);
+    }
+  }
+}
